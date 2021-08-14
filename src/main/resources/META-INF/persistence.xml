@@ -1,0 +1,24 @@
+    <persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.2"
+        xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
+    <!--Define persistence unit-->
+    <persistence-unit name="persistenceDevPredator">
+        
+        <!--Define la clase para Hiobernate que implementa JPA-->
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        
+        <!--Define laS clasesque serán mapeadas al configurarse la conexion a la base de datos-->
+        <class>com.isgb.projectjpa.entity.Disquera</class>
+        
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/tienda_musical?serverTimezone=GMT-3"/>
+            <property name="javax.persistence.jdbc.user" value="root"/>
+            <property name="javax.persistence.jdbc.password" value=""/>
+            
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>
+        </properties>
+        
+    </persistence-unit>
+</persistence>
