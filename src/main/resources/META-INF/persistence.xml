@@ -9,6 +9,8 @@
         
         <!--Define laS clasesque serán mapeadas al configurarse la conexion a la base de datos-->
         <class>com.isgb.projectjpa.entity.Disquera</class>
+        <class>com.isgb.projectjpa.entity.Genero</class>
+        <class>com.isgb.projectjpa.entity.SubGenero</class>
         
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>

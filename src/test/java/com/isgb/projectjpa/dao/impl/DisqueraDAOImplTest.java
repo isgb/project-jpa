@@ -10,6 +10,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -62,6 +63,8 @@ public class DisqueraDAOImplTest {
     public void testConsultarById() {
         Disquera disquera = instance.consultarById(19L);
         
+         assertNotNull(disquera);
+        
         System.out.println("Dsiquera: "+ disquera.getDescripcion());
         
     }
@@ -90,12 +93,35 @@ public class DisqueraDAOImplTest {
        
        List<Disquera> disquerasConsultadas = instance.consultar();
        
-       assertTrue(disquerasConsultadas.size() > 0);
+       //assertTrue(disquerasConsultadas.size() > 0);  
+       assertNotNull(disquerasConsultadas);
        
        disquerasConsultadas.forEach(disquera -> {
-           System.out.println("Dsiquera: "+ disquera.getDescripcion());
+           System.out.println("Disquera: "+ disquera.getDescripcion());
        });
         
+    }
+    
+    @Test
+    public void testConsultarByDescripcionJPQL(){
+        
+        Disquera disqueraConsultada = instance.consultarByDescripcionJPQL("Disquera Judas priest");
+        
+        assertNotNull(disqueraConsultada);
+        
+        System.out.println("Disquera native by descripcion: " + disqueraConsultada);
+    
+    }
+    
+    @Test
+    public void testConsultarByDescripcionNative(){
+        
+        Disquera disqueraConsultada = instance.consultarByDescripcionNative("Disquera Judas priest");
+        
+        assertNotNull(disqueraConsultada);
+        
+        System.out.println("Disquera Nativw by descripcion: " + disqueraConsultada);
+    
     }
    
     
